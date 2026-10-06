@@ -5,23 +5,21 @@ import { useState } from "react";
 // Imágenes de prueba. Cuando tengas fotos reales, ponlas en /public/eventos
 // y cambia cada URL por "/eventos/foto1.jpg", etc.
 const fotos = [
-  { src: "https://picsum.photos/seed/chaski1/480/600", ratio: "4/5" },
-  { src: "https://picsum.photos/seed/chaski2/480/480", ratio: "1/1" },
-  { src: "https://picsum.photos/seed/chaski3/480/640", ratio: "3/4" },
-  { src: "https://picsum.photos/seed/chaski4/480/600", ratio: "4/5" },
-  { src: "https://picsum.photos/seed/chaski5/480/480", ratio: "1/1" },
-  { src: "https://picsum.photos/seed/chaski6/480/640", ratio: "3/4" },
+  "/img/rot_1.png",
+  "/img/rot_2.png",
+  "/img/rot_3.png",
+  "/img/rot_4.png",
 ];
 
 function Columna({ lado, desfase }) {
   // La lista se repite dos veces para que el movimiento no tenga saltos.
   const lista = [...fotos, ...fotos];
-  const orden = desfase ? [...lista.slice(3), ...lista.slice(0, 3)] : lista;
+  const orden = desfase ? [...lista.slice(2), ...lista.slice(0, 2)] : lista;
   return (
     <div className={`col col-${lado}`} aria-hidden="true">
       <div className="track">
         {orden.map((f, i) => (
-          <img key={i} className="foto" src={f.src} alt="" style={{ aspectRatio: f.ratio }} />
+          <img key={i} className="foto" src={f} alt="" />
         ))}
       </div>
     </div>
